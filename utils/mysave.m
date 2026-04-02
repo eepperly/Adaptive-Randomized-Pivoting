@@ -3,8 +3,8 @@ function mysave(fig, name)
     if change_to_dark
         theme(fig,"light");
     end
-    saveas(fig, [name '.png']);
-    saveas(fig, [name '.fig']);
+    saveas(fig, append(name, '.png'));
+    saveas(fig, append(name, '.fig'));
     if change_to_dark
         theme(fig,"dark");
     end
