@@ -25,7 +25,7 @@ skarp_errs = zeros(num_ks,trials);
 optarp_errs = zeros(num_ks,trials);
 skpp_errs = zeros(num_ks,trials);
 
-for A_idx = 1:2
+for A_idx = 2
     A = As{A_idx};
     if A_idx == 1
         ks = 50:50:500;
@@ -74,12 +74,10 @@ for A_idx = 1:2
     if A_idx == 1
         title("kernel")
         legend("","ARP","","SkQR","","SkARP","","OptARP","","RPQR")
-        saveas(gcf,"../figs/arp_kernel_acc.fig")
-        exportgraphics(gcf,"../figs/arp_kernel_acc.png")
+        mysave(gcf,"../figs/arp_kernel_acc")
     else
         title("genetics")
-        saveas(gcf,"../figs/arp_genetics_acc.fig")
-        exportgraphics(gcf,"../figs/arp_genetics_acc.png")
+        mysave(gcf,"../figs/arp_genetics_acc")
     end
     
 end
