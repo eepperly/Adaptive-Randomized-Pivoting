@@ -16,7 +16,9 @@ function [idx,W] = arp(A,k,varargin)
     
     if strcmp(method,"rejection")
         [idx,U,R] = rejection_rpqr(Q');
-    elseif strcmp(method,"ck")
+    elseif strcmp(method, "rejection-cpp") || strcmp(method, "cpp")
+        [idx,U,R] = rejection_rpqr(Q',[],[],true);
+    elseif strcmp(method,"ck") || strcmp(method,"original")
         [idx,U,R] = rpqr_ck(Q');
     else
         error("Method %s not recognized",method)

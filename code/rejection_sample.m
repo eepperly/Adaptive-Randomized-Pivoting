@@ -1,8 +1,16 @@
-function [idx,L] = rejection_sample(A,w)
+function [idx,L] = rejection_sample(A,w,use_cpp)
 n = size(A,1);
 
+if nargin < 3
+    use_cpp = false;
+end
+
 if n <= 1000
-    [idx,L] = rejection_helper(A,w);
+    if use_cpp
+        [idx,L] = rejection_helper(A,w);
+    else
+        [idx,L] = rejection_helper_m(A,w);
+    end
     idx = idx(idx~=0);
     L = tril(L(idx,idx));
     return

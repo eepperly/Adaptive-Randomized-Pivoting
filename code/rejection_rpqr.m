@@ -10,11 +10,16 @@ function [idx,Q,R] = rejection_rpqr(B,varargin)
     else
         l = varargin{2};
     end
+    if length(varargin) < 3 || isempty(varargin{3})
+        use_cpp = false;
+    else
+        use_cpp = true;
+    end
     scn = sqcolnorms(B);
     idx = zeros(k,1);
     prop = datasample(1:n,l,"Replace",true,"Weights",scn);
     H = B(:,prop); H = H'*H;
-    sel = rejection_sample(H,scn(prop));
+    sel = rejection_sample(H,scn(prop),use_cpp);
     sel = prop(sel);
     idx(1:length(sel)) = sel; num_picked = length(sel);
     iqr = incremental_qr(B(:,sel));
