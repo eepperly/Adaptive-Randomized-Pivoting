@@ -58,6 +58,7 @@ From the tests/ directory, run scripts such as:
 - test_arp_accuracy.m
 
 These scripts generate .mat outputs in data/ and figures in figs/.
+Some data files need to be downloaded from external sources for these scripts to be run; see the paper for details.
 
 ## Rebuilding MEX Files
 
