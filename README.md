@@ -62,7 +62,7 @@ Some data files need to be downloaded from external sources for these scripts to
 
 ## Rebuilding MEX Files
 
-To compile from source in MATLAB, run the following commands:
+To run this code, the following C++ files need to be compiled in MATLAB:
 
 ```matlab
 cd code
